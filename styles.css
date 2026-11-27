@@ -1,12 +1,13 @@
 :root {
   color-scheme: dark;
-  --background: #1c151b;
-  --text: #f8eee9;
-  --muted: #cdbdc4;
-  --accent: #edb3c8;
-  --line: #54404b;
-  --paper: #f4e9e4;
-  --ink: #291d26;
+  --background: #48344e;
+  --background-glow: #674765;
+  --text: #fff5f3;
+  --muted: #f0dce9;
+  --accent: #ffc6d6;
+  --line: #92748e;
+  --paper: #faedf1;
+  --ink: #362235;
   --serif: "Instrument Serif", "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --sans: "DM Sans", "Avenir Next", Avenir, system-ui, sans-serif;
   font-family: var(--sans);
@@ -15,7 +16,11 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; color: var(--text); background: var(--background); }
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--background) radial-gradient(ellipse 60rem 37rem at 85% 0%, var(--background-glow), transparent) no-repeat;
+}
 img { display: block; width: 100%; height: auto; }
 a { color: inherit; text-underline-offset: .25em; }
 a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
@@ -136,9 +141,9 @@ p { line-height: 1.65; }
   transition: background-color .2s, border-color .2s;
 }
 .button-primary { color: var(--ink); background: var(--accent); }
-.button-primary:hover { background: #f8c9d9; }
+.button-primary:hover { background: #ffdae3; }
 .button-secondary { border-color: var(--line); color: var(--text); }
-.button-secondary:hover { border-color: var(--accent); background: #372832; }
+.button-secondary:hover { border-color: var(--accent); background: var(--background-glow); }
 .text-link { display: inline-block; padding-block: .45rem; font-size: .95rem; font-weight: 600; }
 .text-link:hover { color: var(--accent); }
 
@@ -147,7 +152,7 @@ p { line-height: 1.65; }
   position: absolute;
   inset: 2% 6% 10% 15%;
   z-index: -1;
-  border: 1px solid #886376;
+  border: 1px solid var(--line);
   content: "";
 }
 .hero-flower {
@@ -390,8 +395,8 @@ p { line-height: 1.65; }
 .gallery-grid figure { min-width: 0; }
 .gallery-grid img { background: var(--paper); }
 .gallery-grid figcaption { margin-top: .6rem; color: var(--muted); font-size: .9rem; line-height: 1.5; }
-.gallery-grid.spring-gallery { grid-template-columns: 1.2fr 1fr; align-items: start; }
-.spring-gallery img { aspect-ratio: 1.85; object-fit: cover; }
+.gallery-grid.spring-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.spring-gallery img { aspect-ratio: 3 / 2; object-fit: cover; }
 .gdc-caption { margin-top: .65rem; color: var(--muted); font-size: .875rem; line-height: 1.55; }
 .gdc-caption strong { color: var(--text); }
 .gdc-caption a:hover { color: var(--accent); }
